@@ -1,5 +1,5 @@
 // 🔑 REPLACE THIS WITH A NEW KEY FROM https://aistudio.google.com/
-const GEMINI_API_KEY = "AIzaSyAdYQpUGWzjud8lP_gnE3MSwgNAMlx6r28";
+const GEMINI_API_KEY = "AIzaSyDX2QWgzyKRZSOzaxY637fpUdslHhF-uOk";
 
 let tasks = JSON.parse(localStorage.getItem('studentTasks')) || [];
 let currentView = 'today';
