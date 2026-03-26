@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Student Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">Menu</div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search tasks...">
+            </div>
+            <nav>
+                <ul>
+                    <li class="nav-item active" id="view-today">Today</li>
+                    <li class="nav-item" id="view-upcoming">Upcoming</li>
+                    <li class="nav-item" id="view-calendar">All Tasks</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="task-section">
+            <header>
+                <h1 id="viewTitle">Today <span>0</span></h1>
+                <div class="add-task-box">
+                    <input type="text" id="taskInput" placeholder="+ Add New Task">
+                    <input type="date" id="taskDate">
+                    <button id="addBtn">Add</button>
+                </div>
+            </header>
+            <ul id="taskList"></ul>
+        </main>
+
+        <section class="detail-panel">
+            <h3>Task Details</h3>
+            <div class="stats">
+                <p>Completed: <span id="completedCount">0</span></p>
+            </div>
+            <hr>
+            <div id="ai-suggestions">
+                <p class="label"><strong>AI Smart Suggestion:</strong></p>
+                <div id="suggestionBox" class="suggestion-card">
+                    Add a task to see AI insights...
+                </div>
+            </div>
+            <div class="footer-actions">
+                <button class="clear-btn" id="clearAllBtn">Clear All Tasks</button>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

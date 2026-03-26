@@ -1,0 +1,53 @@
+:root {
+    --bg-color: #e9f0e9;
+    --sidebar-bg: #f8f9f8;
+    --accent-yellow: #ffcc00;
+    --text-main: #333;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.app-container {
+    width: 95%;
+    max-width: 1100px;
+    height: 80vh;
+    background: white;
+    display: grid;
+    grid-template-columns: 220px 1fr 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Sidebar & Search */
+.sidebar { background: var(--sidebar-bg); padding: 20px; border-right: 1px solid #eee; }
+.search-box input { width: 90%; padding: 8px; border-radius: 8px; border: 1px solid #ddd; margin: 15px 0; }
+.nav-item { list-style: none; padding: 12px; cursor: pointer; border-radius: 10px; margin-bottom: 5px; transition: 0.2s; }
+.nav-item.active { background: white; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+/* Main Section */
+.task-section { padding: 30px; overflow-y: auto; }
+.add-task-box { display: flex; gap: 8px; margin-bottom: 20px; }
+#taskInput { flex: 2; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+#taskDate { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+#addBtn { background: var(--accent-yellow); border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+/* Tasks */
+.task-item { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid #f9f9f9; align-items: center; }
+.task-item.completed span { text-decoration: line-through; color: #bbb; }
+.delete-btn { color: #ff4d4d; border: none; background: none; cursor: pointer; font-size: 0.8rem; }
+
+/* AI Panel */
+.detail-panel { padding: 25px; border-left: 1px solid #eee; background: #fafafa; display: flex; flex-direction: column; }
+.suggestion-card { background: white; padding: 15px; border-radius: 12px; border: 1px dashed #ccc; margin-top: 10px; font-size: 0.85rem; color: #555; }
+.footer-actions { margin-top: auto; }
+.clear-btn { width: 100%; padding: 12px; background: #fee; color: #c33; border: 1px solid #fcc; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+.clear-btn:hover { background: #fcc; color: white; }
