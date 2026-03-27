@@ -1,53 +1,35 @@
 :root {
-    --bg-color: #e9f0e9;
-    --sidebar-bg: #f8f9f8;
+    --bg-color: #f0f4f0;
     --accent-yellow: #ffcc00;
-    --text-main: #333;
+    --ai-purple: #8a2be2;
 }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg-color);
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg-color); margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+
+.app-container { 
+    width: 95%; max-width: 1100px; height: 85vh; background: white; 
+    display: grid; grid-template-columns: 220px 1fr 280px; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.app-container {
-    width: 95%;
-    max-width: 1100px;
-    height: 80vh;
-    background: white;
-    display: grid;
-    grid-template-columns: 220px 1fr 280px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
+/* Sidebar Fixes */
+.sidebar { background: #f9f9f9; padding: 25px; border-right: 1px solid #eee; }
+#navLinks { list-style: none; padding: 0; margin-top: 20px; }
+.nav-item { padding: 12px 20px; cursor: pointer; border-radius: 12px; margin-bottom: 8px; color: #555; transition: 0.3s; }
+.nav-item.active { background: white; font-weight: bold; color: black; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-/* Sidebar & Search */
-.sidebar { background: var(--sidebar-bg); padding: 20px; border-right: 1px solid #eee; }
-.search-box input { width: 90%; padding: 8px; border-radius: 8px; border: 1px solid #ddd; margin: 15px 0; }
-.nav-item { list-style: none; padding: 12px; cursor: pointer; border-radius: 10px; margin-bottom: 5px; transition: 0.2s; }
-.nav-item.active { background: white; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+/* Task Area */
+.task-section { padding: 40px; overflow-y: auto; }
+.add-task-box { display: flex; gap: 10px; margin-bottom: 30px; }
+input { padding: 12px; border: 1px solid #ddd; border-radius: 10px; outline: none; }
+#addBtn { background: var(--accent-yellow); border: none; padding: 0 25px; border-radius: 10px; cursor: pointer; font-weight: bold; }
 
-/* Main Section */
-.task-section { padding: 30px; overflow-y: auto; }
-.add-task-box { display: flex; gap: 8px; margin-bottom: 20px; }
-#taskInput { flex: 2; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
-#taskDate { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
-#addBtn { background: var(--accent-yellow); border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-
-/* Tasks */
-.task-item { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid #f9f9f9; align-items: center; }
-.task-item.completed span { text-decoration: line-through; color: #bbb; }
-.delete-btn { color: #ff4d4d; border: none; background: none; cursor: pointer; font-size: 0.8rem; }
+/* Task Items */
+.task-item { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #f5f5f5; align-items: center; }
+.task-item.completed span { text-decoration: line-through; color: #ccc; }
+.ai-enhance-btn { background: #f0e6ff; color: var(--ai-purple); border: 1px solid #dcd0ff; padding: 5px 10px; border-radius: 8px; font-size: 0.75rem; cursor: pointer; margin-left: 10px; }
 
 /* AI Panel */
-.detail-panel { padding: 25px; border-left: 1px solid #eee; background: #fafafa; display: flex; flex-direction: column; }
-.suggestion-card { background: white; padding: 15px; border-radius: 12px; border: 1px dashed #ccc; margin-top: 10px; font-size: 0.85rem; color: #555; }
-.footer-actions { margin-top: auto; }
-.clear-btn { width: 100%; padding: 12px; background: #fee; color: #c33; border: 1px solid #fcc; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.2s; }
-.clear-btn:hover { background: #fcc; color: white; }
+.detail-panel { padding: 30px; border-left: 1px solid #eee; background: #fafafa; }
+.suggestion-card { background: white; border: 1px dashed var(--ai-purple); padding: 15px; border-radius: 12px; font-size: 0.85rem; margin: 15px 0; min-height: 60px; }
+.ai-btn { width: 100%; background: var(--ai-purple); color: white; border: none; padding: 12px; border-radius: 12px; cursor: pointer; font-weight: bold; }
+.clear-link { background: none; border: none; color: #ff4d4d; cursor: pointer; margin-top: 20px; width: 100%; text-align: center; }
