@@ -74,6 +74,8 @@ async function callGroq(prompt) {
 // --- App Logic ---
 function renderTasks() {
   const taskList = document.getElementById('taskList');
+  if (!taskList) return; // Safety check
+
   const today = new Date().toISOString().split('T')[0];
   taskList.innerHTML = '';
 
@@ -83,34 +85,24 @@ function renderTasks() {
     return true; 
   });
 
+  // Update Counters - Ensure these IDs match your HTML
   const viewTitle = document.getElementById('viewTitle');
-  if (viewTitle) {
-    viewTitle.innerHTML = `${currentView.toUpperCase()} <span>${filtered.length}</span>`;
-  }
+  if (viewTitle) viewTitle.innerHTML = `${currentView.toUpperCase()} <span>${filtered.length}</span>`;
 
   const completedCount = document.getElementById('completedCount');
-  if (completedCount) {
-    completedCount.innerText = tasks.filter(t => t.completed).length;
-  }
+  if (completedCount) completedCount.innerText = tasks.filter(t => t.completed).length;
 
   filtered.forEach(task => {
     const li = document.createElement('li');
     li.className = `task-item ${task.completed ? 'completed' : ''}`;
-    li.style.display = "flex";
-    li.style.justifyContent = "space-between";
-    li.style.alignItems = "center";
-    li.style.padding = "10px";
-    li.style.borderBottom = "1px solid #eee";
-
+    // Using your exact UI structure from the "Working" screenshot
     li.innerHTML = `
-      <div style="display:flex; align-items:center; gap:10px;">
+      <div class="task-left">
         <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTask(${task.id})">
-        <span style="${task.completed ? 'text-decoration:line-through; color:gray;' : ''}">
-            ${escapeHtml(task.text)} <small style="color:#999">(${escapeHtml(task.date || '')})</small>
-        </span>
-        <button class="ai-enhance-btn" onclick="enhanceTaskById(${task.id})" style="background:#f0e6ff; border:none; padding:4px 8px; border-radius:5px; cursor:pointer;">✨ AI Fix</button>
+        <span class="task-text">${escapeHtml(task.text)} <small>(${task.date})</small></span>
+        <button class="ai-enhance-btn" onclick="enhanceTaskById(${task.id})">✨ AI Fix</button>
       </div>
-      <button onclick="deleteTask(${task.id})" style="color:red; border:none; background:none; cursor:pointer; font-size:20px;">&times;</button>
+      <button class="delete-btn" onclick="deleteTask(${task.id})">&times;</button>
     `;
     taskList.appendChild(li);
   });
