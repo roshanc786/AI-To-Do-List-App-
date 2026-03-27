@@ -14,7 +14,7 @@
                 <input type="text" id="searchInput" placeholder="Search tasks...">
             </div>
             <nav>
-                <ul>
+                <ul id="navLinks">
                     <li class="nav-item active" id="view-today">Today</li>
                     <li class="nav-item" id="view-upcoming">Upcoming</li>
                     <li class="nav-item" id="view-calendar">All Tasks</li>
@@ -24,9 +24,9 @@
 
         <main class="task-section">
             <header>
-                <h1 id="viewTitle">Today <span>0</span></h1>
+                <h1 id="viewTitle">TODAY <span>0</span></h1>
                 <div class="add-task-box">
-                    <input type="text" id="taskInput" placeholder="+ Add New Task">
+                    <input type="text" id="taskInput" placeholder="What needs to be done?">
                     <input type="date" id="taskDate">
                     <button id="addBtn">Add</button>
                 </div>
@@ -35,19 +35,19 @@
         </main>
 
         <section class="detail-panel">
-            <h3>Task Details</h3>
-            <div class="stats">
-                <p>Completed: <span id="completedCount">0</span></p>
-            </div>
-            <hr>
-            <div id="ai-suggestions">
-                <p class="label"><strong>AI Smart Suggestion:</strong></p>
+            <h3>AI Assistant</h3>
+            <div class="stats">Done: <span id="completedCount">0</span></div>
+            
+            <div class="ai-box">
+                <p><strong>AI Insight:</strong></p>
                 <div id="suggestionBox" class="suggestion-card">
-                    Add a task to see AI insights...
+                    Click "AI Fix" on a task or "Summarize" to start!
                 </div>
+                <button class="ai-btn" onclick="summarizeDay()">Summarize My Day</button>
             </div>
+
             <div class="footer-actions">
-                <button class="clear-btn" id="clearAllBtn">Clear All Tasks</button>
+                <button class="clear-link" onclick="clearAll()">Clear All Tasks</button>
             </div>
         </section>
     </div>
